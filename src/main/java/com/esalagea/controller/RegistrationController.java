@@ -4,6 +4,8 @@ import com.esalagea.dto.PasswordDto;
 import com.esalagea.dto.UserDto;
 import com.esalagea.error.UserAlreadyExistException;
 import com.esalagea.persistence.entity.User;
+import com.esalagea.service.IUserSecurityService;
+import com.esalagea.service.IUserService;
 import com.esalagea.service.UserSecurityService;
 import com.esalagea.service.UserService;
 import org.slf4j.Logger;
@@ -35,13 +37,13 @@ public class RegistrationController {
     private UserService userDetailsService;
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @Autowired
     private JavaMailSender mailSender;
 
     @Autowired
-    private UserSecurityService securityUserService;
+    private IUserSecurityService securityUserService;
 
     /**
      * Updates the password from the current logged in user
